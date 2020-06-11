@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 
 namespace Soccer.Common.Models
 {
@@ -21,6 +22,10 @@ namespace Soccer.Common.Models
 
         public string LogoPath { get; set; }
 
-        public ICollection<GroupResponse> Groups { get; set; }
+        public string LogoFullPath => string.IsNullOrEmpty(LogoPath)
+            ? "https://soccerwebutcipa4.azurewebsites.net//images/noimage.png"
+            : $"https://soccerwebutcipa4.azurewebsites.net{LogoPath.Substring(1)}";
+
+        public List<GroupResponse> Groups { get; set; }
     }
 }
