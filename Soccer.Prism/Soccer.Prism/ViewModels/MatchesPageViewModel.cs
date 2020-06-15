@@ -28,7 +28,6 @@ namespace Soccer.Prism.ViewModels
         private void LoadMatches()
         {
             _tournament = JsonConvert.DeserializeObject<TournamentResponse>(Settings.Tournament);
-            Title = _tournament.Name;
             List<MatchResponse> matches = new List<MatchResponse>();
             foreach (GroupResponse group in _tournament.Groups)
             {

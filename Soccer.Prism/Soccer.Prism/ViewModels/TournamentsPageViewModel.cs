@@ -11,6 +11,7 @@ namespace Soccer.Prism.ViewModels
         private readonly INavigationService _navigationService;
         private readonly IApiService _apiService;
         private List<TournamentItemViewModel> _tournaments;
+        
 
         public TournamentsPageViewModel(
             INavigationService navigationService,
@@ -22,6 +23,7 @@ namespace Soccer.Prism.ViewModels
             LoadTournamentsAsync();
         }
 
+        
         public List<TournamentItemViewModel> Tournaments
         {
             get => _tournaments;
@@ -30,12 +32,20 @@ namespace Soccer.Prism.ViewModels
 
         private async void LoadTournamentsAsync()
         {
-            string url = App.Current.Resources["UrlAPI"].ToString();
+
+            var url = App.Current.Resources["UrlAPI"].ToString();
+            var connection = await _apiService.CheckConnectionAsync(url);
+            if (!connection)
+            {
+                await App.Current.MainPage.DisplayAlert("Error", "Check the internet connection.", "Accept");
+                return;
+            }
+
             Response response = await _apiService.GetListAsync<TournamentResponse>(
                 url,
                 "/api",
                 "/Tournaments");
-
+            
             if (!response.IsSuccess)
             {
                 await App.Current.MainPage.DisplayAlert(
@@ -44,6 +54,7 @@ namespace Soccer.Prism.ViewModels
                     "Accept");
                 return;
             }
+            
 
             List<TournamentResponse> list = (List<TournamentResponse>)response.Result;
             Tournaments = list.Select(t => new TournamentItemViewModel(_navigationService)

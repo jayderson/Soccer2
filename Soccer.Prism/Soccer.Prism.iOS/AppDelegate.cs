@@ -1,6 +1,7 @@
 ﻿using Foundation;
 using Prism;
 using Prism.Ioc;
+using Syncfusion.SfBusyIndicator.XForms.iOS;
 using UIKit;
 
 
@@ -14,6 +15,7 @@ namespace Soccer.Prism.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
+            new SfBusyIndicatorRenderer();
             FFImageLoading.Forms.Platform.CachedImageRenderer.Init();
             LoadApplication(new App(new iOSInitializer()));
 
