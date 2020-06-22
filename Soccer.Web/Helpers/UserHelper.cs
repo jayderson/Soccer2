@@ -27,6 +27,8 @@ namespace Soccer.Web.Helpers
             _context = context;
         }
 
+
+
         public async Task<IdentityResult> ChangePasswordAsync(UserEntity user, string oldPassword, string newPassword)
         {
             return await _userManager.ChangePasswordAsync(user, oldPassword, newPassword);

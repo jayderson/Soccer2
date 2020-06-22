@@ -76,6 +76,7 @@ namespace Soccer.Web
             services.AddScoped<ICombosHelper, CombosHelper>();
             services.AddScoped<IUserHelper, UserHelper>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddScoped<IMatchHelper, MatchHelper>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)

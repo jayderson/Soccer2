@@ -17,5 +17,10 @@ namespace Soccer.Web.Data.Entities
         public ICollection<GroupDetailEntity> GroupDetails { get; set; }
 
         public ICollection<UserEntity> Users { get; set; }
+        [Display(Name = "Logo")]
+        public string LogoFullPath => string.IsNullOrEmpty(LogoPath)
+    ? "https://soccerwebutcipa4.azurewebsites.net//images/noimage.png"
+    : $"https://soccerwebutcipa4.azurewebsites.net{LogoPath.Substring(1)}";
+
     }
 }

@@ -26,11 +26,16 @@ namespace Soccer.Web.Data
             await CheckTeamsAsync();
             await CheckTournamentsAsync();
             await CheckUserAsync("1010", "Jayderson", "Gutierrez", "jaydergut@gmail.com", "318 330 3316", "mz 9 cs 2 jardin santander", UserType.Admin);
-            await CheckUserAsync("2020", "Jayderson", "Gutierrez", "jaydergut@hotmail.com", "318 330 3316", "mz 9 cs 2 jardin santander", UserType.User);
-            await CheckUserAsync("3030", "Jayderson", "Gutierrez", "jayderg@globant.com", "318 330 3316", "mz 9 cs 2 jardin santander", UserType.User);
-            await CheckUserAsync("4040", "Jayderson", "Gutierrez", "jgutierrezd@ut.edu.co", "318 330 3316", "mz 9 cs 2 jardin santander", UserType.User);
+            await CheckUsersAsync();
             await CheckPreditionsAsync();
 
+        }
+        private async Task CheckUsersAsync()
+        {
+            for (int i = 1; i <= 100; i++)
+            {
+                await CheckUserAsync($"100{i}", "User", $"{i}", $"user{i}@yopmail.com", "350 634 2747", "Calle Luna Calle Sol", UserType.User);
+            }
         }
 
         private async Task CheckPreditionsAsync()
@@ -117,14 +122,14 @@ namespace Soccer.Web.Data
                 AddTeam("Brasil");
                 AddTeam("Bucaramanga");
                 AddTeam("Canada");
-                AddTeam("Chelsea");               
+                AddTeam("Chelsea");
                 AddTeam("Chile");
                 AddTeam("Colombia");
                 AddTeam("Costa Rica");
                 AddTeam("Ecuador");
                 AddTeam("Honduras");
                 AddTeam("Junior");
-                AddTeam("Liverpool");              
+                AddTeam("Liverpool");
                 AddTeam("Manchester United");
                 AddTeam("Medellin");
                 AddTeam("Mexico");
