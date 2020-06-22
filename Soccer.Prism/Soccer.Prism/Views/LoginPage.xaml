@@ -2,11 +2,59 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="http://prismlibrary.com"
+         	 xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
+           	 xmlns:i18n="clr-namespace:Soccer.Prism.Helpers"
              prism:ViewModelLocator.AutowireViewModel="True"
-             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
-             ios:Page.UseSafeArea="true"
              x:Class="Soccer.Prism.Views.LoginPage"
              BackgroundColor="{StaticResource ColorBackgroud}"
              Title="{Binding Title}">
-  
+
+    <AbsoluteLayout>
+        <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1"
+                     AbsoluteLayout.LayoutFlags="All" 
+                     Padding="5">
+            <Image HeightRequest="150"
+                   Margin="0,20,0,0"
+                   Source="soccer"/>
+            <Grid Margin="20" 
+                  VerticalOptions="CenterAndExpand">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="3*"/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" 
+                       Grid.Row="0"
+                       HorizontalTextAlignment="End"
+                       Text="Email"
+                       VerticalOptions="Center"/>
+                <Entry Grid.Column="1"
+                       Grid.Row="0"
+                       BackgroundColor="{StaticResource ColorFontInverse}"
+                       Keyboard="Email"
+                       Placeholder="Ingrese Su Email"
+                       Text="{Binding Email}"/>
+                <Label Grid.Column="0" 
+                       Grid.Row="1"
+                       HorizontalTextAlignment="End"
+                       Text="Password"
+                       VerticalOptions="Center"/>
+                <Entry Grid.Column="1"
+                       Grid.Row="1"
+                       BackgroundColor="{StaticResource ColorFontInverse}"
+                       IsPassword="True"
+                       Placeholder="Ingrese su clave"
+                       Text="{Binding Password}"/>
+            </Grid>
+            <StackLayout>
+                <Button Command="{Binding LoginCommand}" 
+                        IsEnabled="{Binding IsEnabled}"
+                        Text="Login"/>
+                <Button Command="{Binding RegisterCommand}" 
+                        IsEnabled="{Binding IsEnabled}"
+                        Text="Register"
+                        Style="{StaticResource DangerButton}"/>
+            </StackLayout>
+        </StackLayout>
+        
+    </AbsoluteLayout>
 </ContentPage>
