@@ -23,13 +23,13 @@ namespace Soccer.Web.Controllers
         private readonly DataContext _context;
         private readonly IConfiguration _configuration;
 
-        public IActionResult ChangePassword()
+        public IActionResult ChangePasswordMVC()
         {
             return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> ChangePassword(ChangePasswordViewModel model)
+        public async Task<IActionResult> ChangePasswordMVC(ChangePasswordViewModel model)
         {
             
                 var user = await _userHelper.GetUserAsync(User.Identity.Name);
