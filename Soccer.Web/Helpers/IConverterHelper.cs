@@ -36,6 +36,6 @@ namespace Soccer.Web.Helpers
 
         MatchResponse ToMatchResponse(MatchEntity matchEntity);
 
-
+        UserResponse ToUserResponse(UserEntity user);
     }
 }
