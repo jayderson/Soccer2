@@ -4,6 +4,7 @@ using Prism.Navigation;
 using Soccer.Common.Helpers;
 using Soccer.Common.Models;
 using Soccer.Common.Services;
+using Soccer.Prism.Views;
 
 namespace Soccer.Prism.ViewModels
 {
@@ -71,7 +72,7 @@ namespace Soccer.Prism.ViewModels
             {
                 IsRunning = true;
                 IsEnabled = false;
-                
+
                 return;
             }
 
@@ -87,12 +88,12 @@ namespace Soccer.Prism.ViewModels
             {
                 IsRunning = false;
                 IsEnabled = true;
-               
+
                 Password = string.Empty;
                 return;
             }
 
-            TokenResponse token = (TokenResponse)response.Result;           
+            TokenResponse token = (TokenResponse)response.Result;
             Settings.Token = JsonConvert.SerializeObject(token);
             Settings.IsLogin = true;
 
@@ -103,8 +104,10 @@ namespace Soccer.Prism.ViewModels
             Password = string.Empty;
         }
 
-        private void RegisterAsync()
+        private async void RegisterAsync()
         {
+            await _navigationService.NavigateAsync(nameof(RegisterPage));
+
         }
     }
 }

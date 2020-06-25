@@ -67,7 +67,7 @@ namespace Soccer.Prism.ViewModels
                 {
                     Icon = "login",
                     PageName = "LoginPage",
-                    Title = "Login"
+                    Title = "Login/Logout"
                 }
             };
 

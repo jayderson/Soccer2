@@ -46,6 +46,8 @@ namespace Soccer.Prism
             containerRegistry.RegisterForNavigation<MyPositionsPage, MyPositionsPageViewModel>();
             containerRegistry.RegisterForNavigation<ModifyUserPage, ModifyUserPageViewModel>();
             containerRegistry.RegisterForNavigation<LoginPage, LoginPageViewModel>();
+            containerRegistry.RegisterForNavigation<RegisterPage, RegisterPageViewModel>();
+            containerRegistry.Register<IRegexHelper, RegexHelper>();
         }
     }
 }

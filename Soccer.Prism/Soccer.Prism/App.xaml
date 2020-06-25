@@ -10,6 +10,7 @@
 
             <!-- Parameters -->
             <x:String x:Key="UrlAPI">https://soccerwebutcipa4.azurewebsites.net/</x:String>
+            <x:String x:Key="UrlNoImage">https://soccerwebutcipa4.azurewebsites.net/images/noimage.jpg</x:String>
 
             <!-- Colors -->
             <Color x:Key="ColorBackgroud">#54E85D</Color>
@@ -41,7 +42,16 @@
                 <Setter Property="TextColor" Value="{StaticResource ColorFont}" />
             </Style>
 
-            
+            <Style TargetType="Entry">
+                <Setter Property="BackgroundColor" Value="{StaticResource ColorFontInverse}" />
+            </Style>
+
+            <Style TargetType="Picker">
+                <Setter Property="BackgroundColor" Value="{StaticResource ColorFontInverse}" />
+            </Style>
+
+
+
             <!-- Data Templates -->
             <DataTemplate x:Key="MatchTemplate">
                 <StackLayout>
