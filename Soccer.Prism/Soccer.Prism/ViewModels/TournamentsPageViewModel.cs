@@ -41,10 +41,7 @@ namespace Soccer.Prism.ViewModels
                 return;
             }
 
-            Response response = await _apiService.GetListAsync<TournamentResponse>(
-                url,
-                "/api",
-                "/Tournaments");
+            Response response = await _apiService.GetListAsync<TournamentResponse>(url,"/api","/Tournaments");
             
             if (!response.IsSuccess)
             {

@@ -49,19 +49,22 @@ namespace Soccer.Prism.ViewModels
                 {
                     Icon = "prediction",
                     PageName = "MyPredictionsPage",
-                    Title = "My Predictions"
+                    Title = "My Predictions",
+                    IsLoginRequired = true
                 },
                 new Menu
                 {
                     Icon = "medal",
                     PageName = "MyPositionsPage",
-                    Title = "My Positions"
+                    Title = "My Positions",
+                    IsLoginRequired = true
                 },
                 new Menu
                 {
                     Icon = "user",
                     PageName = "ModifyUserPage",
-                    Title = "Modify User"
+                    Title = "Modify User",
+                    IsLoginRequired = true
                 },
                 new Menu
                 {
@@ -76,7 +79,8 @@ namespace Soccer.Prism.ViewModels
                 {
                     Icon = m.Icon,
                     PageName = m.PageName,
-                    Title = m.Title
+                    Title = m.Title,
+                    IsLoginRequired = m.IsLoginRequired
                 }).ToList());
         }
     }
